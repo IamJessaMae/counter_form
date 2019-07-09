@@ -2,25 +2,46 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
+
+  // change code below this line
+
+  increment() {
+    this.setState({
+      count: this.state.count + 1
+    });
+  };
+  
+  decrement() {
+    this.setState({
+      count: this.state.count - 1
+    });
+  };
+
+  reset() {
+    this.setState({
+      count: 0
+    });
+  };
+
+  // change code above this line
+  render() {
+    return (
+
+   <div>
+   <button className='inc' onClick={(e) => this.increment(e)}>Increment!</button>
+    <button className='dec' onClick={(e) => this.decrement(e)}>Decrement!</button>
+    <button className='reset' onClick={(e) => this.reset(e)}>Reset</button>
+    <h1>Current Count: {this.state.count}</h1>
+  </div>
+    );
+  }
+};
 
 export default App;
